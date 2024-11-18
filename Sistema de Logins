@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class SistemaDeLogin {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String senhaCorreta = "java8";
+
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Digite a senha: ");
+            String senha = scanner.nextLine();
+
+            if (senha.equals(senhaCorreta)) {
+                System.out.println("Acesso concedido!");
+                return;
+            } else {
+                System.out.println("Senha incorreta. Tentativas restantes: " + (2 - i));
+            }
+        }
+
+        System.out.println("Acesso bloqueado.");
+        scanner.close();
+    }
+}
