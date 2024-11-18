@@ -1,0 +1,19 @@
+import javax.swing.*;
+
+public class CalculadoraDeAposentadoria {
+    public static void main(String[] args) {
+        int idade = Integer.parseInt(JOptionPane.showInputDialog("Digite a sua idade: "));
+        int anosContribuicao = Integer.parseInt(JOptionPane.showInputDialog("Digite os anos de contribuição: "));
+        String sexo = JOptionPane.showInputDialog("Digite o seu sexo (M/F): ").toUpperCase();
+
+        int idadeMinima = sexo.equals("M") ? 65 : 62;
+        int contribuicaoMinima = 35;
+
+        if (idade >= idadeMinima || anosContribuicao >= contribuicaoMinima) {
+            JOptionPane.showMessageDialog(null, "Você já pode se aposentar!");
+        } else {
+            int anosFaltando = Math.min(idadeMinima - idade, contribuicaoMinima - anosContribuicao);
+            JOptionPane.showMessageDialog(null, "Faltam " + anosFaltando + " anos para você se aposentar.");
+        }
+    }
+}
