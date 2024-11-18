@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class CircuitoDeResistencias {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[] resistencias = new double[4];
+
+        System.out.println("Digite os valores das 4 resistências:");
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Resistência " + (i + 1) + ": ");
+            resistencias[i] = scanner.nextDouble();
+        }
+
+        double resistenciaEquivalente = 0, maior = resistencias[0], menor = resistencias[0];
+        for (double r : resistencias) {
+            resistenciaEquivalente += r;
+            if (r > maior) maior = r;
+            if (r < menor) menor = r;
+        }
+
+        System.out.printf("Resistência equivalente: %.2f Ω%n", resistenciaEquivalente);
+        System.out.printf("Maior resistência: %.2f Ω%n", maior);
+        System.out.printf("Menor resistência: %.2f Ω%n", menor);
+
+        scanner.close();
+    }
+}
